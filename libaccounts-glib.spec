@@ -77,7 +77,6 @@ rm -f %{buildroot}%{_libdir}/*.la
 %{_bindir}/*
 %{_datadir}/xml
 %{_datadir}/backup-framework
-%{_mandir}/man1/*.*
 
 %files -n %{libname}
 %doc COPYING AUTHORS
@@ -97,23 +96,3 @@ rm -f %{buildroot}%{_libdir}/*.la
 
 %files -n python-%{name}
 %py_platsitedir/gi/overrides/Accounts.*
-
-
-%changelog
-
-* Sat Jan 12 2013 umeabot <umeabot> 1.4-3.mga3
-+ Revision: 356787
-- Mass Rebuild - https://wiki.mageia.org/en/Feature:Mageia3MassRebuild
-
-* Tue Dec 11 2012 fwang <fwang> 1.4-2.mga3
-+ Revision: 329535
-- add gir pkg
-- build gir
-
-* Mon Dec 10 2012 fwang <fwang> 1.4-1.mga3
-+ Revision: 329355
-- update file list
-- update file list for py binding
-- update file list
-- imported package libaccounts-glib
-
