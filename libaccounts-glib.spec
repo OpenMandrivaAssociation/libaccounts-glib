@@ -5,8 +5,8 @@
 
 Summary:	Accounts and SSO (Single Sign-On) framework
 Name:		libaccounts-glib
-Version:	1.8
-Release:	5
+Version:	1.16
+Release:	1
 Group:		System/Libraries
 License:	LGPLv2
 Url:		http://code.google.com/p/accounts-sso/
@@ -70,10 +70,15 @@ Python binding for %{name}.
 %install
 %makeinstall_std
 
+# No need to ship test data
+rm -rf %{buildroot}%{_datadir}/%{name}/testdata \
+	%{buildroot}%{_libdir}/%{name}/*test*
+
 %files
 %{_bindir}/*
 %{_datadir}/xml
 %{_datadir}/backup-framework
+%{_datadir}/dbus-1/interfaces/com.google.code.AccountsSSO.Accounts.Manager.xml
 
 %files -n %{libname}
 %{_libdir}/%{name}.so.%{major}*
