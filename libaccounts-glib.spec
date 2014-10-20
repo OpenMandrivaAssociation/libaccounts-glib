@@ -20,6 +20,7 @@ BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(pygobject-3.0) >= 2.90
 BuildRequires:	pkgconfig(sqlite3) >= 3.7.0
 BuildRequires:	python-gi >= 2.90
+BuildRequires:	python-setuptools
 BuildRequires:	xsltproc
 BuildRequires:	gobject-introspection-devel
 
