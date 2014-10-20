@@ -64,7 +64,7 @@ Python binding for %{name}.
 %setup -q
 
 %build
-%configure2_5x
+%configure CFLAGS="$CFLAGS -Wno-error"
 %make
 
 %install
@@ -74,11 +74,14 @@ Python binding for %{name}.
 rm -rf %{buildroot}%{_datadir}/%{name}/testdata \
 	%{buildroot}%{_libdir}/%{name}/*test*
 
+rm -fr %{buildroot}%{py_platsitedir}/gi/overrides/__pycache__
+
 %files
 %{_bindir}/*
 %{_datadir}/xml
 %{_datadir}/backup-framework
 %{_datadir}/dbus-1/interfaces/com.google.code.AccountsSSO.Accounts.Manager.xml
+%{_mandir}/man1/*
 
 %files -n %{libname}
 %{_libdir}/%{name}.so.%{major}*
