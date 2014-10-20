@@ -82,7 +82,6 @@ rm -fr %{buildroot}%{py_platsitedir}/gi/overrides/__pycache__
 %{_datadir}/xml
 %{_datadir}/backup-framework
 %{_datadir}/dbus-1/interfaces/com.google.code.AccountsSSO.Accounts.Manager.xml
-%{_mandir}/man1/*
 
 %files -n %{libname}
 %{_libdir}/%{name}.so.%{major}*
