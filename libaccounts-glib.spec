@@ -84,6 +84,7 @@ rm -fr %{buildroot}%{py_platsitedir}/gi/overrides/__pycache__
 %{_datadir}/xml
 %{_datadir}/backup-framework
 %{_datadir}/dbus-1/interfaces/com.google.code.AccountsSSO.Accounts.Manager.xml
+%{_mandir}/man1/ag-*.1.*
 
 %files -n %{libname}
 %{_libdir}/%{name}.so.%{major}*
@@ -97,7 +98,6 @@ rm -fr %{buildroot}%{py_platsitedir}/gi/overrides/__pycache__
 %{_libdir}/pkgconfig/%{name}.pc
 %{_includedir}/%{name}
 %{_datadir}/gir-1.0/Accounts-1.0.gir
-%{_datadir}/gtk-doc/html/%{name}
 %{_datadir}/vala/vapi/*
 
 %files -n python-%{name}
