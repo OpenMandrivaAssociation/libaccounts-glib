@@ -23,6 +23,7 @@ BuildRequires:	python-gi >= 2.90
 BuildRequires:	python-setuptools
 BuildRequires:	xsltproc
 BuildRequires:	gobject-introspection-devel
+BuildRequires:	gtk-doc
 
 %description
 Accounts and SSO (Single Sign-On) framework for Linux and POSIX based
