@@ -5,8 +5,8 @@
 
 Summary:	Accounts and SSO (Single Sign-On) framework
 Name:		libaccounts-glib
-Version:	1.16
-Release:	5
+Version:	1.18
+Release:	1
 Group:		System/Libraries
 License:	LGPLv2
 Url:		http://code.google.com/p/accounts-sso/
@@ -63,6 +63,7 @@ Python binding for %{name}.
 
 %prep
 %setup -q
+./autogen.sh
 
 %build
 %configure CFLAGS="$CFLAGS -Wno-error"
@@ -100,4 +101,3 @@ rm -fr %{buildroot}%{py_platsitedir}/gi/overrides/__pycache__
 
 %files -n python-%{name}
 %{py_platsitedir}/gi/overrides/Accounts.*
-
