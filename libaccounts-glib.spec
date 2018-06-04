@@ -6,7 +6,7 @@
 Summary:	Accounts and SSO (Single Sign-On) framework
 Name:		libaccounts-glib
 Version:	1.23
-Release:	1
+Release:	2
 Group:		System/Libraries
 License:	LGPLv2
 Url:		https://gitlab.com/groups/accounts-sso
@@ -80,8 +80,6 @@ Python binding for %{name}.
 rm -rf %{buildroot}%{_datadir}/%{name}/testdata \
 	%{buildroot}%{_libdir}/%{name}/*test*
 
-rm -fr %{buildroot}%{py_platsitedir}/gi/overrides/__pycache__
-
 %files
 %{_bindir}/*
 %{_datadir}/xml
@@ -105,3 +103,4 @@ rm -fr %{buildroot}%{py_platsitedir}/gi/overrides/__pycache__
 
 %files -n python-%{name}
 %{py_platsitedir}/gi/overrides/Accounts.*
+%{py_platsitedir}/gi/overrides/__pycache__/*
