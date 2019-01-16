@@ -5,15 +5,15 @@
 
 Summary:	Accounts and SSO (Single Sign-On) framework
 Name:		libaccounts-glib
-Version:	1.23
-Release:	4
+Version:	1.24
+Release:	1
 Group:		System/Libraries
 License:	LGPLv2
 Url:		https://gitlab.com/groups/accounts-sso
 # Actually
 # https://gitlab.com/accounts-sso/libaccounts-glib/repository/archive.tar.bz2?ref=VERSION_%{version}
 # but abb doesn't handle question marks in filenames, and that's what rpm generates
-Source0:	https://gitlab.com/accounts-sso/libaccounts-glib/repository/%{name}-%{version}.tar.xz
+Source0:	https://gitlab.com/accounts-sso/libaccounts-glib/repository/archive.tar.gz?ref=VERSION_1.24#/%{name}-%{version}.tar.gz
 BuildRequires:	pkgconfig(check) >= 0.9.4
 BuildRequires:	pkgconfig(gio-2.0) >= 2.30
 BuildRequires:	pkgconfig(gio-unix-2.0)
