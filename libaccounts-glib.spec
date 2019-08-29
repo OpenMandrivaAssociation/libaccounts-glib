@@ -5,15 +5,15 @@
 
 Summary:	Accounts and SSO (Single Sign-On) framework
 Name:		libaccounts-glib
-Version:	1.23
-Release:	4
+Version:	1.24
+Release:	1
 Group:		System/Libraries
 License:	LGPLv2
 Url:		https://gitlab.com/groups/accounts-sso
 # Actually
 # https://gitlab.com/accounts-sso/libaccounts-glib/repository/archive.tar.bz2?ref=VERSION_%{version}
 # but abb doesn't handle question marks in filenames, and that's what rpm generates
-Source0:	https://gitlab.com/accounts-sso/libaccounts-glib/repository/%{name}-%{version}.tar.xz
+Source0:	https://gitlab.com/accounts-sso/libaccounts-glib/repository/%{name}-VERSION_%{version}.tar.bz2
 BuildRequires:	pkgconfig(check) >= 0.9.4
 BuildRequires:	pkgconfig(gio-2.0) >= 2.30
 BuildRequires:	pkgconfig(gio-unix-2.0)
@@ -23,7 +23,8 @@ BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(pygobject-3.0) >= 2.90
 BuildRequires:	pkgconfig(sqlite3) >= 3.7.0
 BuildRequires:	python-gi >= 2.90
-BuildRequires:	python-setuptools
+BuildRequires:	meson
+BuildRequires:	ninja
 BuildRequires:	xsltproc
 BuildRequires:	gobject-introspection-devel
 BuildRequires:	gtk-doc
@@ -66,15 +67,15 @@ Group:		Development/Python
 Python binding for %{name}.
 
 %prep
-%setup -q
-./autogen.sh
+%autosetup -n %{name}-VERSION_%{version} -p1
 
 %build
-%configure CFLAGS="$CFLAGS -Wno-error"
-%make
+%meson -G Ninja
+
+%ninja_build
 
 %install
-%makeinstall_std
+%ninja_install
 
 # No need to ship test data
 rm -rf %{buildroot}%{_datadir}/%{name}/testdata \
