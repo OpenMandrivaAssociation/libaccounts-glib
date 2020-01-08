@@ -115,7 +115,7 @@ rm -rf %{buildroot}%{_datadir}/%{name}/testdata \
 %{_datadir}/dbus-1/interfaces/*.xml
 %{_datadir}/gir-1.0/Accounts-1.0.gir
 %{_datadir}/vala/vapi/*
-%{_datadir}/gtk-doc/html/libaccounts-glib/
+%{_datadir}/gtk-doc/html/%{name}
 
 %files -n python-%{name}
 %{py_platsitedir}/gi/overrides/Accounts.*
