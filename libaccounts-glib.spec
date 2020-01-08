@@ -108,7 +108,7 @@ rm -rf %{buildroot}%{_datadir}/%{name}/testdata \
 %{_libdir}/girepository-1.0/Accounts-1.0.typelib
 
 %files -n %{devname}
-%doc COPYING AUTHORS
+%doc COPYING
 %{_libdir}/%{name}.so
 %{_libdir}/pkgconfig/%{name}.pc
 %{_includedir}/%{name}
