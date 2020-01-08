@@ -22,11 +22,12 @@ BuildRequires:	pkgconfig(gobject-2.0)
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(pygobject-3.0) >= 2.90
 BuildRequires:	pkgconfig(sqlite3) >= 3.7.0
-BuildRequires:	python-gi >= 2.90
+BuildRequires:	python3egg(pygobject) >= 2.90
 BuildRequires:	meson
 BuildRequires:	ninja
 BuildRequires:	xsltproc
-BuildRequires:	gobject-introspection-devel
+BuildRequires:	gnome-common
+BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	gtk-doc
 BuildRequires:	vala-tools
 
@@ -63,6 +64,7 @@ developing applications that use %{name}.
 %package -n python-%{name}
 Summary:	Python binding for %{name}
 Group:		Development/Python
+Requires:	python3egg(pygobject)
 
 %description -n python-%{name}
 Python binding for %{name}.
@@ -77,16 +79,28 @@ Python binding for %{name}.
 %install
 %meson_install
 
+# create/own data dirs
+mkdir -p %{buildroot}%{_datadir}/accounts/{applications,providers,services,service_types}
+
 # No need to ship test data
 rm -rf %{buildroot}%{_datadir}/%{name}/testdata \
 	%{buildroot}%{_libdir}/%{name}/*test*
 
 %files
-%{_bindir}/*
-%{_datadir}/xml
-%{_datadir}/backup-framework
-%{_datadir}/dbus-1/interfaces/com.google.code.AccountsSSO.Accounts.Manager.xml
-%{_mandir}/man1/ag-*.1.*
+%{_bindir}/ag-backup
+%{_bindir}/ag-tool
+%dir %{_datadir}/xml/
+%dir %{_datadir}/xml/accounts/
+%dir %{_datadir}/xml/accounts/schema/
+%dir %{_datadir}/xml/accounts/schema/dtd
+%{_datadir}/xml/accounts/schema/dtd/accounts-*.dtd
+%dir %{_datadir}/accounts/
+%dir %{_datadir}/accounts/applications/
+%dir %{_datadir}/accounts/providers/
+%dir %{_datadir}/accounts/services/
+%dir %{_datadir}/accounts/service_types/
+%dir %{_datadir}/gettext/its
+%{_datadir}/gettext/its/accounts-*
 
 %files -n %{libname}
 %{_libdir}/%{name}.so.%{major}*
@@ -99,6 +113,7 @@ rm -rf %{buildroot}%{_datadir}/%{name}/testdata \
 %{_libdir}/%{name}.so
 %{_libdir}/pkgconfig/%{name}.pc
 %{_includedir}/%{name}
+%{_datadir}/dbus-1/interfaces/*.xml
 %{_datadir}/gir-1.0/Accounts-1.0.gir
 %{_datadir}/vala/vapi/*
 
