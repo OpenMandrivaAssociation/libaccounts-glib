@@ -20,7 +20,6 @@ BuildRequires:	pkgconfig(gio-unix-2.0)
 BuildRequires:	pkgconfig(glib-2.0) >= 2.26
 BuildRequires:	pkgconfig(gobject-2.0)
 BuildRequires:	pkgconfig(libxml-2.0)
-BuildRequires:	pkgconfig(pygobject-3.0) >= 2.90
 BuildRequires:	pkgconfig(sqlite3) >= 3.7.0
 BuildRequires:	python3egg(pygobject) >= 2.90
 BuildRequires:	meson
