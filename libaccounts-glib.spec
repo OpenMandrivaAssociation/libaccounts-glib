@@ -28,6 +28,7 @@ BuildRequires:	ninja
 BuildRequires:	xsltproc
 BuildRequires:	gobject-introspection-devel
 BuildRequires:	gtk-doc
+BuildRequires:	vala-tools
 
 %description
 Accounts and SSO (Single Sign-On) framework for Linux and POSIX based
