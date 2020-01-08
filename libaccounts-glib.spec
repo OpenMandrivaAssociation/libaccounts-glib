@@ -70,8 +70,7 @@ Python binding for %{name}.
 %autosetup -n %{name}-VERSION_%{version} -p1
 
 %build
-%meson -G Ninja
-
+%meson
 %ninja_build
 
 %install
