@@ -1,4 +1,4 @@
-%define major	0
+%define major 0
 %define libname %mklibname accounts-glib %{major}
 %define girname %mklibname accounts-glib-gir 1.0
 %define devname %mklibname -d accounts-glib
@@ -72,10 +72,10 @@ Python binding for %{name}.
 
 %build
 %meson
-%ninja_build
+%meson_build
 
 %install
-%ninja_install
+%meson_install
 
 # No need to ship test data
 rm -rf %{buildroot}%{_datadir}/%{name}/testdata \
