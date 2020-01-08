@@ -1,4 +1,4 @@
-%define major 0
+%define major 1
 %define libname %mklibname accounts-glib %{major}
 %define girname %mklibname accounts-glib-gir 1.0
 %define devname %mklibname -d accounts-glib
