@@ -63,7 +63,7 @@ developing applications that use %{name}.
 %package -n python-%{name}
 Summary:	Python binding for %{name}
 Group:		Development/Python
-Requires:	python3egg(pygobject)
+Requires:	python3dist(pygobject)
 
 %description -n python-%{name}
 Python binding for %{name}.
