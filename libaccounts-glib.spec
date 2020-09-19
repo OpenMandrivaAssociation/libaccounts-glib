@@ -103,6 +103,7 @@ rm -rf %{buildroot}%{_datadir}/%{name}/testdata \
 
 %files -n %{libname}
 %{_libdir}/%{name}.so.%{major}*
+%{_libdir}/libaccounts-glib.so.0
 
 %files -n %{girname}
 %{_libdir}/girepository-1.0/Accounts-1.0.typelib
