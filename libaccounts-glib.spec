@@ -6,7 +6,7 @@
 Summary:	Accounts and SSO (Single Sign-On) framework
 Name:		libaccounts-glib
 Version:	1.25
-Release:	1
+Release:	2
 Group:		System/Libraries
 License:	LGPLv2
 Url:		https://gitlab.com/groups/accounts-sso
@@ -14,6 +14,12 @@ Url:		https://gitlab.com/groups/accounts-sso
 # https://gitlab.com/accounts-sso/libaccounts-glib/repository/archive.tar.bz2?ref=VERSION_%{version}
 # but abb doesn't handle question marks in filenames, and that's what rpm generates
 Source0:	https://gitlab.com/accounts-sso/libaccounts-glib/repository/%{name}-VERSION_%{version}.tar.bz2
+# Upstream doesn't seem to understand what a soname is, going from 1 (in 1.24)
+# to 0 (in 1.25) and placing symlinks from .so.1.25 to .so.0
+# Let's put it back to the less insane status from 1.24.
+# At some point gnomes need to grow a brain and/or stop
+# making releases while badly drunk.
+Patch0:		libaccounts-glib-1.25-soname.patch
 BuildRequires:	pkgconfig(check) >= 0.9.4
 BuildRequires:	pkgconfig(gio-2.0) >= 2.30
 BuildRequires:	pkgconfig(gio-unix-2.0)
@@ -85,6 +91,9 @@ mkdir -p %{buildroot}%{_datadir}/accounts/{applications,providers,services,servi
 rm -rf %{buildroot}%{_datadir}/%{name}/testdata \
 	%{buildroot}%{_libdir}/%{name}/*test*
 
+# For binary compatibility with the upstream messup
+ln -s libaccounts-glib.so.1 %{buildroot}%{_libdir}/libaccounts-glib.so.0
+
 %files
 %{_bindir}/ag-backup
 %{_bindir}/ag-tool
@@ -103,7 +112,8 @@ rm -rf %{buildroot}%{_datadir}/%{name}/testdata \
 
 %files -n %{libname}
 %{_libdir}/%{name}.so.%{major}*
-%{_libdir}/libaccounts-glib.so.0
+# For binary compatibility with the upstream messup
+%{_libdir}/%{name}.so.0
 
 %files -n %{girname}
 %{_libdir}/girepository-1.0/Accounts-1.0.typelib

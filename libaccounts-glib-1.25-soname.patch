@@ -1,0 +1,12 @@
+diff -up libaccounts-glib-VERSION_1.25/meson.build.omv~ libaccounts-glib-VERSION_1.25/meson.build
+--- libaccounts-glib-VERSION_1.25/meson.build.omv~	2020-09-20 20:22:50.945510225 +0200
++++ libaccounts-glib-VERSION_1.25/meson.build	2020-09-20 20:22:54.114633726 +0200
+@@ -2,7 +2,7 @@ project('libaccounts-glib', 'c', version
+ 
+ version_parts = meson.project_version().split('.')
+ api_version = '@0@.0'.format(version_parts[0])
+-so_version = '0'
++so_version = '1'
+ 
+ gnome = import('gnome')
+ pkg = import('pkgconfig')
