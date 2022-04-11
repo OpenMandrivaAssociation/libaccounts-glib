@@ -130,4 +130,3 @@ ln -s libaccounts-glib.so.1 %{buildroot}%{_libdir}/libaccounts-glib.so.0
 
 %files -n python-%{name}
 %{py_platsitedir}/gi/overrides/Accounts.*
-%{py_platsitedir}/gi/overrides/__pycache__/*
