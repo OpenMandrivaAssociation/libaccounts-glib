@@ -76,7 +76,7 @@ Requires:	python3dist(pygobject)
 Python binding for %{name}.
 
 %prep
-%autosetup -n %{name}-VERSION_%{version} -p1
+%autosetup -n %{name}-%{version} -p1
 
 %build
 %meson
