@@ -5,15 +5,16 @@
 
 Summary:	Accounts and SSO (Single Sign-On) framework
 Name:		libaccounts-glib
-Version:	1.25
-Release:	6
+Version:	1.26
+Release:	1
 Group:		System/Libraries
 License:	LGPLv2
 Url:		https://gitlab.com/groups/accounts-sso
 # Actually
 # https://gitlab.com/accounts-sso/libaccounts-glib/repository/archive.tar.bz2?ref=VERSION_%{version}
 # but abb doesn't handle question marks in filenames, and that's what rpm generates
-Source0:	https://gitlab.com/accounts-sso/libaccounts-glib/repository/%{name}-VERSION_%{version}.tar.bz2
+#Source0:	https://gitlab.com/accounts-sso/libaccounts-glib/repository/%{name}-VERSION_%{version}.tar.bz2
+Source0:	https://gitlab.com/accounts-sso/libaccounts-glib/-/archive/%{version}/libaccounts-glib-%{version}.tar.bz2
 # Upstream doesn't seem to understand what a soname is, going from 1 (in 1.24)
 # to 0 (in 1.25) and placing symlinks from .so.1.25 to .so.0
 # Let's put it back to the less insane status from 1.24.
