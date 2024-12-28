@@ -5,8 +5,8 @@
 
 Summary:	Accounts and SSO (Single Sign-On) framework
 Name:		libaccounts-glib
-Version:	1.26
-Release:	4
+Version:	1.27
+Release:	1
 Group:		System/Libraries
 License:	LGPLv2
 Url:		https://gitlab.com/groups/accounts-sso
@@ -76,7 +76,7 @@ Requires:	python3dist(pygobject)
 Python binding for %{name}.
 
 %prep
-%autosetup -n %{name}-%{version} -p1
+%autosetup -n libaccounts-glib-VERSION_%{version} -p1
 
 %build
 %meson
