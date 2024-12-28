@@ -5,8 +5,8 @@
 
 Summary:	Accounts and SSO (Single Sign-On) framework
 Name:		libaccounts-glib
-Version:	1.26
-Release:	4
+Version:	1.27
+Release:	1
 Group:		System/Libraries
 License:	LGPLv2
 Url:		https://gitlab.com/groups/accounts-sso
@@ -36,6 +36,8 @@ BuildRequires:	gnome-common
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	gtk-doc
 BuildRequires:	vala-tools
+
+Obsoletes:	python-%{name}
 
 %description
 Accounts and SSO (Single Sign-On) framework for Linux and POSIX based
@@ -67,16 +69,16 @@ Provides:	%{name}-devel = %{version}-%{release}
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
 
-%package -n python-%{name}
-Summary:	Python binding for %{name}
-Group:		Development/Python
-Requires:	python3dist(pygobject)
+#package -n python-%{name}
+#Summary:	Python binding for %{name}
+#Group:		Development/Python
+#Requires:	python3dist(pygobject)
 
-%description -n python-%{name}
-Python binding for %{name}.
+#description -n python-%{name}
+#Python binding for %{name}.
 
 %prep
-%autosetup -n %{name}-%{version} -p1
+%autosetup -n libaccounts-glib-VERSION_%{version} -p1
 
 %build
 %meson
@@ -129,5 +131,5 @@ ln -s libaccounts-glib.so.1 %{buildroot}%{_libdir}/libaccounts-glib.so.0
 %{_datadir}/vala/vapi/*
 %{_datadir}/gtk-doc/html/%{name}
 
-%files -n python-%{name}
-%{py_platsitedir}/gi/overrides/Accounts.*
+#files -n python-%{name}
+#{py_platsitedir}/gi/overrides/Accounts.*
