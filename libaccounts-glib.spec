@@ -130,4 +130,4 @@ ln -s libaccounts-glib.so.1 %{buildroot}%{_libdir}/libaccounts-glib.so.0
 %{_datadir}/gtk-doc/html/%{name}
 
 %files -n python-%{name}
-%{py_platsitedir}/gi/overrides/Accounts.*
+#{py_platsitedir}/gi/overrides/Accounts.*
