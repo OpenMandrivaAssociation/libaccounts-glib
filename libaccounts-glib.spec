@@ -6,7 +6,7 @@
 Summary:	Accounts and SSO (Single Sign-On) framework
 Name:		libaccounts-glib
 Version:	1.27
-Release:	2
+Release:	3
 Group:		System/Libraries
 License:	LGPLv2
 Url:		https://gitlab.com/groups/accounts-sso
