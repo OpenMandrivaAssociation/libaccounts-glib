@@ -6,7 +6,7 @@
 Summary:	Accounts and SSO (Single Sign-On) framework
 Name:		libaccounts-glib
 Version:	1.27
-Release:	4
+Release:	5
 Group:		System/Libraries
 License:	LGPLv2
 Url:		https://gitlab.com/groups/accounts-sso
@@ -26,7 +26,7 @@ BuildRequires:	pkgconfig(gio-2.0) >= 2.30
 BuildRequires:	pkgconfig(gio-unix-2.0)
 BuildRequires:	pkgconfig(glib-2.0) >= 2.26
 BuildRequires:	pkgconfig(gobject-2.0)
-BuildRequires:	pkgconfig(libxml-2.0)
+BuildRequires:	pkgconfig(libxml-2.0) >= 2.15.2
 BuildRequires:	pkgconfig(sqlite3) >= 3.7.0
 BuildRequires:	python3dist(pygobject) >= 2.90
 BuildRequires:	meson
